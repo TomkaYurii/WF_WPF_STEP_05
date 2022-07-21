@@ -18,7 +18,7 @@ namespace MVP.Presenters
 
         private void ShowPetsView(object sender, EventArgs e)
         {
-            IPetView view = new PetView();
+            IPetView view = PetView.GetInstace((MainView)mainView);
             IPetRepository repository = new PetRepository(sqlConnectionString);
             new PetPresenter(view, repository);
         }

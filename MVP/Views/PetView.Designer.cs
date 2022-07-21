@@ -85,9 +85,9 @@ partial class PetView
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(851, 12);
+            this.btnClose.Location = new System.Drawing.Point(844, 3);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(37, 30);
+            this.btnClose.Size = new System.Drawing.Size(44, 33);
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;

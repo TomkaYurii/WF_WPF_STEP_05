@@ -100,4 +100,24 @@ public partial class PetView : Form, IPetView
     {
         dataGridView.DataSource = petList;
     }
+
+    //Singleton pattern (Open a single form instance)
+    private static PetView instance;
+    public static PetView GetInstace(Form parentContainer)
+    {
+        if (instance == null || instance.IsDisposed)
+        {
+            instance = new PetView();
+            instance.MdiParent = parentContainer;
+            instance.FormBorderStyle = FormBorderStyle.None;
+            instance.Dock = DockStyle.Fill;
+        }
+        else
+        {
+            if (instance.WindowState == FormWindowState.Minimized)
+                instance.WindowState = FormWindowState.Normal;
+            instance.BringToFront();
+        }
+        return instance;
+    }
 }
