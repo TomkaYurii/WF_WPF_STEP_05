@@ -29,13 +29,58 @@ public partial class PetView : Form, IPetView
 
     private void AssociateAndRaiseViewEvents()
     {
+        //Search
         btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
         txtSearch.KeyDown += (s, e) =>
           {
               if (e.KeyCode == Keys.Enter)
                   SearchEvent?.Invoke(this, EventArgs.Empty);
           };
-        //Others
+        //Add new
+        btnAddNew.Click += delegate
+        {
+            AddNewEvent?.Invoke(this, EventArgs.Empty);
+            tabControl1.TabPages.Remove(tabPagePetList);
+            tabControl1.TabPages.Add(tabPagePetDetail);
+            tabPagePetDetail.Text = "Add new pet";
+        };
+        //Edit
+        btnEdit.Click += delegate
+        {
+            EditEvent?.Invoke(this, EventArgs.Empty);
+            tabControl1.TabPages.Remove(tabPagePetList);
+            tabControl1.TabPages.Add(tabPagePetDetail);
+            tabPagePetDetail.Text = "Edit pet";
+        };
+        //Save changes
+        btnSave.Click += delegate
+        {
+            SaveEvent?.Invoke(this, EventArgs.Empty);
+            if (isSuccessful)
+            {
+                tabControl1.TabPages.Remove(tabPagePetDetail);
+                tabControl1.TabPages.Add(tabPagePetList);
+            }
+            MessageBox.Show(Message);
+        };
+        //Cancel
+        btnCancel.Click += delegate
+        {
+            CancelEvent?.Invoke(this, EventArgs.Empty);
+            tabControl1.TabPages.Remove(tabPagePetDetail);
+            tabControl1.TabPages.Add(tabPagePetList);
+        };
+        //Delete
+        btnDelete.Click += delegate
+        {
+            var result = MessageBox.Show("Are you sure you want to delete the selected pet?", "Warning",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                DeleteEvent?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show(Message);
+            }
+        };
     }
 
     //Properties

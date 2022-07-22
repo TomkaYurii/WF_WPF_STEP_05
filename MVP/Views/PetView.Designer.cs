@@ -210,10 +210,10 @@ partial class PetView
             this.tabPagePetDetail.Controls.Add(this.label3);
             this.tabPagePetDetail.Controls.Add(this.txtPetId);
             this.tabPagePetDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPagePetDetail.Location = new System.Drawing.Point(4, 29);
+            this.tabPagePetDetail.Location = new System.Drawing.Point(4, 34);
             this.tabPagePetDetail.Name = "tabPagePetDetail";
             this.tabPagePetDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePetDetail.Size = new System.Drawing.Size(884, 378);
+            this.tabPagePetDetail.Size = new System.Drawing.Size(884, 373);
             this.tabPagePetDetail.TabIndex = 1;
             this.tabPagePetDetail.Text = "Pet detail";
             // 
